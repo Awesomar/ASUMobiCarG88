@@ -1,5 +1,9 @@
 ASUMobiCarG88
 
+It is a RC Car project. It allows complete mobile control over the car using bluetooth signal. The car allow "easy driving with obstacles avoidance", "accurate movement" and "line tracking" features. The project is done under the guidance of Dr.Mohamed Sobhy.
+
+This project is done by: 
+
 Omar Ashraf Hammad
 Omar Ahmad Mahmoud
 Omar Ahmad Mohammed
@@ -10,4 +14,3 @@ Tasneem Aly Ahmed
 Donia Walid Anis
 Aya Hany Mohammed
 Aya Mohammed Hassan
-
