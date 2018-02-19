@@ -1,0 +1,4 @@
+embedded program that show a bouncing light between 4 LEDs connected to pins 4, 5, 6 and 7.
+The bouncing delay is 1 second.
+Explanation: Bouncing light means that the light is moving between the LEDs in turn. At first it starts
+form left to right then go back from right to left and so on.

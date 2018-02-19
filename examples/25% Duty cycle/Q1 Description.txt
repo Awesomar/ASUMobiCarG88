@@ -1,0 +1,1 @@
+embedded program that produces continuous pulses with duration of 2 seconds and duty cycle of 25%.
