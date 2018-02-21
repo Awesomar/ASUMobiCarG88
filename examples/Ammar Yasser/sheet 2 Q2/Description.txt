@@ -1,0 +1,2 @@
+embedded system connected to 8 bit dip-switches. The system produce a pulse of duration
+equal to the supplied 8 bit value (0 to 255) multiplied by 4.
