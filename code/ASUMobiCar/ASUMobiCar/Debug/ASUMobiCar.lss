@@ -11,21 +11,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000198  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000058  00000000  00000000  000001d4  2**0
+  4 .debug_aranges 00000070  00000000  00000000  000001d4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000682  00000000  00000000  0000022c  2**0
+  5 .debug_info   00000705  00000000  00000000  00000244  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000005a1  00000000  00000000  000008ae  2**0
+  6 .debug_abbrev 000005df  00000000  00000000  00000949  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000272  00000000  00000000  00000e4f  2**0
+  7 .debug_line   000002a1  00000000  00000000  00000f28  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000094  00000000  00000000  000010c4  2**2
+  8 .debug_frame  000000a8  00000000  00000000  000011cc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000348  00000000  00000000  00001158  2**0
+  9 .debug_str    00000354  00000000  00000000  00001274  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000026  00000000  00000000  000014a0  2**0
+ 10 .debug_loc    00000026  00000000  00000000  000015c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000048  00000000  00000000  000014c6  2**0
+ 11 .debug_ranges 00000050  00000000  00000000  000015ee  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -60,85 +60,85 @@ Disassembly of section .text:
   5a:	d8 e0       	ldi	r29, 0x08	; 8
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
-  60:	0e 94 5f 00 	call	0xbe	; 0xbe <main>
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
   64:	0c 94 88 00 	jmp	0x110	; 0x110 <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-0000006c <UART_init>:
-	UCSRC = (3 << UCSZ0); //8-bits
-}
-void UARD_send_char(char data)
-{
-	while(!(UCSRA & (1 << UDRE)));
-	UDR = data;
-  6c:	09 2e       	mov	r0, r25
-  6e:	00 0c       	add	r0, r0
-  70:	aa 0b       	sbc	r26, r26
-  72:	bb 0b       	sbc	r27, r27
-  74:	88 0f       	add	r24, r24
-  76:	99 1f       	adc	r25, r25
-  78:	aa 1f       	adc	r26, r26
-  7a:	bb 1f       	adc	r27, r27
-  7c:	88 0f       	add	r24, r24
-  7e:	99 1f       	adc	r25, r25
-  80:	aa 1f       	adc	r26, r26
-  82:	bb 1f       	adc	r27, r27
-  84:	9c 01       	movw	r18, r24
-  86:	ad 01       	movw	r20, r26
-  88:	22 0f       	add	r18, r18
-  8a:	33 1f       	adc	r19, r19
-  8c:	44 1f       	adc	r20, r20
-  8e:	55 1f       	adc	r21, r21
-  90:	22 0f       	add	r18, r18
-  92:	33 1f       	adc	r19, r19
-  94:	44 1f       	adc	r20, r20
-  96:	55 1f       	adc	r21, r21
-  98:	60 e0       	ldi	r22, 0x00	; 0
-  9a:	74 e2       	ldi	r23, 0x24	; 36
-  9c:	84 ef       	ldi	r24, 0xF4	; 244
-  9e:	90 e0       	ldi	r25, 0x00	; 0
-  a0:	0e 94 66 00 	call	0xcc	; 0xcc <__udivmodsi4>
-  a4:	21 50       	subi	r18, 0x01	; 1
-  a6:	31 09       	sbc	r19, r1
-  a8:	29 b9       	out	0x09, r18	; 9
-  aa:	30 bd       	out	0x20, r19	; 32
-  ac:	88 e1       	ldi	r24, 0x18	; 24
-  ae:	8a b9       	out	0x0a, r24	; 10
-  b0:	86 e0       	ldi	r24, 0x06	; 6
-  b2:	80 bd       	out	0x20, r24	; 32
-  b4:	08 95       	ret
-
-000000b6 <UARD_receive_char>:
-}
-char UARD_receive_char()
-{
-	while (!(UCSRA & (1 << RXC)));
-  b6:	5f 9b       	sbis	0x0b, 7	; 11
-  b8:	fe cf       	rjmp	.-4      	; 0xb6 <UARD_receive_char>
-	return UDR;
-  ba:	8c b1       	in	r24, 0x0c	; 12
-}
-  bc:	08 95       	ret
-
-000000be <main>:
+0000006c <main>:
 void turnRight();
 void turnLeft();
 
 int main(void)
 {
 	UART_init(9600);
-  be:	80 e8       	ldi	r24, 0x80	; 128
-  c0:	95 e2       	ldi	r25, 0x25	; 37
-  c2:	0e 94 36 00 	call	0x6c	; 0x6c <UART_init>
+  6c:	80 e8       	ldi	r24, 0x80	; 128
+  6e:	95 e2       	ldi	r25, 0x25	; 37
+  70:	0e 94 3d 00 	call	0x7a	; 0x7a <UART_init>
 	char R;
 	
 	while(1)
 	{
 		R = UARD_receive_char();
-  c6:	0e 94 5b 00 	call	0xb6	; 0xb6 <UARD_receive_char>
-  ca:	fd cf       	rjmp	.-6      	; 0xc6 <main+0x8>
+  74:	0e 94 62 00 	call	0xc4	; 0xc4 <UARD_receive_char>
+  78:	fd cf       	rjmp	.-6      	; 0x74 <main+0x8>
+
+0000007a <UART_init>:
+	UCSRC = (3 << UCSZ0); //8-bits
+}
+void UARD_send_char(char data)
+{
+	while(!(UCSRA & (1 << UDRE)));
+	UDR = data;
+  7a:	09 2e       	mov	r0, r25
+  7c:	00 0c       	add	r0, r0
+  7e:	aa 0b       	sbc	r26, r26
+  80:	bb 0b       	sbc	r27, r27
+  82:	88 0f       	add	r24, r24
+  84:	99 1f       	adc	r25, r25
+  86:	aa 1f       	adc	r26, r26
+  88:	bb 1f       	adc	r27, r27
+  8a:	88 0f       	add	r24, r24
+  8c:	99 1f       	adc	r25, r25
+  8e:	aa 1f       	adc	r26, r26
+  90:	bb 1f       	adc	r27, r27
+  92:	9c 01       	movw	r18, r24
+  94:	ad 01       	movw	r20, r26
+  96:	22 0f       	add	r18, r18
+  98:	33 1f       	adc	r19, r19
+  9a:	44 1f       	adc	r20, r20
+  9c:	55 1f       	adc	r21, r21
+  9e:	22 0f       	add	r18, r18
+  a0:	33 1f       	adc	r19, r19
+  a2:	44 1f       	adc	r20, r20
+  a4:	55 1f       	adc	r21, r21
+  a6:	60 e0       	ldi	r22, 0x00	; 0
+  a8:	74 e2       	ldi	r23, 0x24	; 36
+  aa:	84 ef       	ldi	r24, 0xF4	; 244
+  ac:	90 e0       	ldi	r25, 0x00	; 0
+  ae:	0e 94 66 00 	call	0xcc	; 0xcc <__udivmodsi4>
+  b2:	21 50       	subi	r18, 0x01	; 1
+  b4:	31 09       	sbc	r19, r1
+  b6:	29 b9       	out	0x09, r18	; 9
+  b8:	30 bd       	out	0x20, r19	; 32
+  ba:	88 e1       	ldi	r24, 0x18	; 24
+  bc:	8a b9       	out	0x0a, r24	; 10
+  be:	86 e0       	ldi	r24, 0x06	; 6
+  c0:	80 bd       	out	0x20, r24	; 32
+  c2:	08 95       	ret
+
+000000c4 <UARD_receive_char>:
+}
+char UARD_receive_char()
+{
+	while (!(UCSRA & (1 << RXC)));
+  c4:	5f 9b       	sbis	0x0b, 7	; 11
+  c6:	fe cf       	rjmp	.-4      	; 0xc4 <UARD_receive_char>
+	return UDR;
+  c8:	8c b1       	in	r24, 0x0c	; 12
+}
+  ca:	08 95       	ret
 
 000000cc <__udivmodsi4>:
   cc:	a1 e2       	ldi	r26, 0x21	; 33
