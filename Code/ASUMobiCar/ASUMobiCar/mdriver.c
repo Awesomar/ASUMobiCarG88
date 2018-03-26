@@ -1,10 +1,3 @@
-/*
- * mdriver.c
- *
- * Created: 25/03/18 
- *  Author: Ammar 
- */ 
- 
 #include "macros.h"
 #include "mdriver.h"
 

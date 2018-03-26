@@ -120,7 +120,16 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="macros.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mdriver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mdriver.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="UART.c">

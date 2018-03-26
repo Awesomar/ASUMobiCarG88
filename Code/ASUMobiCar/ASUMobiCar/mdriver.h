@@ -1,15 +1,6 @@
-﻿/*
- * mdriver.h
- *
- * Created: 25/03/18 
- *  Author: Ammar 
- */ 
-
-
-#ifndef DRIVER_H_
+﻿#ifndef DRIVER_H_
 #define DRIVER_H_
 
-#define F_CPU 1000000UL
 #include <avr/io.h>
 
 #define DDR_MOTOR DDRB

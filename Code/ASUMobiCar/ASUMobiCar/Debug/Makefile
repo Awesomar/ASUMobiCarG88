@@ -38,6 +38,7 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.c \
+../mdriver.c \
 ../UART.c
 
 
@@ -49,18 +50,22 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
+mdriver.o \
 UART.o
 
 OBJS_AS_ARGS +=  \
 main.o \
+mdriver.o \
 UART.o
 
 C_DEPS +=  \
 main.d \
+mdriver.d \
 UART.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
+mdriver.d \
 UART.d
 
 OUTPUT_FILE_PATH +=ASUMobiCar.elf
@@ -77,6 +82,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

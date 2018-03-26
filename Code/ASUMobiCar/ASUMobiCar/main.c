@@ -1,49 +1,31 @@
 #include "UART.h"
+#include "mdriver.h"
 #include <util/delay.h>
-
-void moveForward();
-void moveBackward();
-void turnRight();
-void turnLeft();
 
 int main(void)
 {
-	UART_init(9600);
+	UART_init(9600); //initializing the receiver
 	char R;
 	
 	while(1)
 	{
-		R = UARD_receive_char();
+		R = UARD_receive_char(); //receiving a character
 		
 		if (R == 'F') //Forward
-		moveForward();
+			moveForward();
 		
 		if (R == 'B') //Backward
-		moveBackward();
+			moveBackward();
 		
 		if (R == 'R') //Right
-		turnRight();
+			moveRight();
 		
 		if (R == 'L') //Left
-		turnLeft();
+			moveLeft();
+		
+		else
+			stop();
 	}
 	
 	return 0;
-}
-
-void moveForward()
-{
-	
-}
-void moveBackward()
-{
-	
-}
-void turnRight()
-{
-	
-}
-void turnLeft()
-{
-	
 }
