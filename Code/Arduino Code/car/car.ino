@@ -29,7 +29,7 @@ pinMode(motorB2, OUTPUT);
 
 void loop() {
   distance = ReadPing
-    if (distance<=15){Stop ();}
+    if (distance<=30){Stop ();}
   if(Serial.available()>0){
 state = Serial.read();
     }
@@ -99,7 +99,7 @@ digitalWrite(motorB2, LOW);
 void EasyDrive ()
 {
   Forward () ;
-  if (distance <=15)
+  if (distance <=30)
   {Stop();}
 }
 float ReadPing ()
