@@ -1,23 +1,19 @@
 #include<NewPing.h> 
-void Forward () ;
-void Backward () ;
-void Right () ;
-void Left () ; 
-void Stop () ;
-void EasyDrive () ;
+
+void Forward (), Backward (), Right (), Left (), Stop (), EasyDrive ();
 float ReadPing ();
 const int motorA1 = 7;
 const int motorA2 = 6;
 const int motorB1 = 5;
 const int motorB2 = 4;
-char state ;
-float distance ;
 #define trig A0
 #define echo A1
+
+char state ;
+float distance ;
+
 NewPing sonar(trig, echo, 250)
-
-
-
+  
 void setup() {
   Serial.begin(9600);
 pinMode(motorA1, OUTPUT);
@@ -29,14 +25,8 @@ pinMode(motorB2, OUTPUT);
 
 void loop() {
   distance = ReadPing () ;
-    if (distance<=30)
-    {
-      Stop ();
-    }
-  if(Serial.available()>0)
-  {
-state = Serial.read();
-    }
+ 
+if(Serial.available()>0) {state = Serial.read();}
     switch(state)
     {
     case'f' : Forward(); break;
@@ -93,7 +83,7 @@ digitalWrite(motorB2, LOW);
 void EasyDrive ()
 {
   Forward () ;
-  if (distance <=30)
+  if (distance <=20)
   {Stop();}
 }
 float ReadPing ()
