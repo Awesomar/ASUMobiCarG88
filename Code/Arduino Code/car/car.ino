@@ -28,7 +28,7 @@ pinMode(motorB2, OUTPUT);
 }
 
 void loop() {
-  distance = ReadPing
+  distance = ReadPing () ;
     if (distance<=30)
     {
       Stop ();
@@ -37,29 +37,17 @@ void loop() {
   {
 state = Serial.read();
     }
-    if(state=='f') { // forward
-      Forward ();
-  }
-if(state=='b') { // Backward
-   
-Backward () ;
-}
-if(state=='r') { // Right
-  
-Right () ;
-}
-if(state=='l') { // Left
-  
-Left () ;
-} 
-if(state=='s') { // Stop
-
-Stop () ;  
-}
-if(state=='e') { // EasyDrive
+    switch(state)
+    {
+    case'f' : Forward(); break;
+    case'b' : Backward(); break;
+    case'l' : Left(); break;
+    case'r' : Right(); break;
+    case's' : Stop(); break;
+    case'e' : EasyDrive(); break;
+    default : Stop();
     
-EasyDrive () ;
-}
+    }
 }
 void Forward ()
 {
