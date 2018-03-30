@@ -1,3 +1,4 @@
+#include<NewPing.h> 
 void Forward () ;
 void Backward () ;
 void Right () ;
@@ -13,7 +14,6 @@ char state ;
 float distance ;
 #define trig A0
 #define echo A1
-#include<NewPing.h> 
 NewPing sonar(trig, echo, 250)
 
 
@@ -29,30 +29,36 @@ pinMode(motorB2, OUTPUT);
 
 void loop() {
   distance = ReadPing
-    if (distance<=30){Stop ();}
-  if(Serial.available()>0){
+    if (distance<=30)
+    {
+      Stop ();
+    }
+  if(Serial.available()>0)
+  {
 state = Serial.read();
     }
-    if(state=='f'){// forward
+    if(state=='f') { // forward
       Forward ();
   }
-if(state=='b'){ // Backward
+if(state=='b') { // Backward
    
 Backward () ;
 }
-if(state=='r'){ // Right
+if(state=='r') { // Right
   
 Right () ;
 }
-if(state=='l'){ // Left
+if(state=='l') { // Left
   
 Left () ;
 } 
-if(state=='s'){ // Stop
+if(state=='s') { // Stop
+
 Stop () ;  
 }
-  if(state=='e'){ // EasyDrive
-    EasyDrive () ;
+if(state=='e') { // EasyDrive
+    
+EasyDrive () ;
 }
 }
 void Forward ()
