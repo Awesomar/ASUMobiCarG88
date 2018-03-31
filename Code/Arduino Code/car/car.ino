@@ -84,7 +84,19 @@ void EasyDrive ()
 {
   Forward () ;
   if (distance <=30)
-  {Stop();}
+  {
+    Stop();
+    delay(100);
+    Backward();
+    delay(1000);
+    Stop();
+    delay(50);
+    Right();
+    delay(500);
+    stop();
+    delay(50);
+    Forward();
+  }
 }
 float ReadPing ()
 {
