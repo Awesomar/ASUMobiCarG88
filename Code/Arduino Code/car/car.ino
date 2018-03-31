@@ -83,7 +83,7 @@ digitalWrite(motorB2, LOW);
 void EasyDrive ()
 {
   Forward () ;
-  if (distance <=20)
+  if (distance <=30)
   {Stop();}
 }
 float ReadPing ()
