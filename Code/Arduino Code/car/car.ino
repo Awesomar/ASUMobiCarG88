@@ -12,7 +12,7 @@ const int motorB2 = 4;
 char state ;
 float distance ;
 
-NewPing sonar(trig, echo, 250)
+NewPing sonar(trig, echo, 250);
   
 void setup() {
   Serial.begin(9600);
@@ -86,15 +86,15 @@ void EasyDrive ()
   if (distance <=30)
   {
     Stop();
-    delay(100);
+    delay(300);
     Backward();
-    delay(1000);
+    delay(800);
     Stop();
-    delay(50);
+    delay(300);
     Right();
-    delay(500);
-    stop();
-    delay(50);
+    delay(400);
+    Stop();
+    delay(300);
     Forward();
   }
 }
