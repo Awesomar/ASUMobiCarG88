@@ -6,8 +6,8 @@ const int motorA1 = 7;
 const int motorA2 = 6;
 const int motorB1 = 5;
 const int motorB2 = 4;
-int enA = 10;
-int enB = 11;
+const int enA = 10;
+const int enB = 11;
 #define LS 12
 #define RS 13
 #define trig A0
@@ -111,22 +111,22 @@ analogWrite(enB, 150);
 }
 void Follower ()
 {
-if(digitalRead(LS) && digitalRead(RS)) //move forward
+if(!digitalRead(LS) && !digitalRead(RS)) //move forward
 {
 analogWrite(enA, 100);
 analogWrite(enB, 100);
 Forward();
 }
-if(digitalRead(LS) && !digitalRead(RS)) //move right
+if(!digitalRead(LS) && digitalRead(RS)) //move right
 {
   Right();
 }
-if(!digitalRead(LS) && digitalRead(RS)) //move left
+if(digitalRead(LS) && !digitalRead(RS)) //move left
 {
   Left();
 }
 
-if(!digitalRead(LS) && !digitalRead(RS)) //Stop
+if(digitalRead(LS) && digitalRead(RS)) //Stop
 {
 Stop();
 }
