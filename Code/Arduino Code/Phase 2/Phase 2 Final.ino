@@ -6,8 +6,8 @@ const int motorA1 = 7;
 const int motorA2 = 6;
 const int motorB1 = 5;
 const int motorB2 = 4;
-int enA = 3;
-int enB = 5;
+int enA = 10;
+int enB = 11;
 #define LS 12
 #define RS 13
 #define trig A0
