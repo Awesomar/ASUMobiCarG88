@@ -115,24 +115,15 @@ if(digitalRead(LS) && digitalRead(RS)) //move forward
 {
 analogWrite(enA, 100);
 analogWrite(enB, 100);
-digitalWrite(motorA1, HIGH); 
-digitalWrite(motorA2, LOW); 
-digitalWrite(motorB1, HIGH); 
-digitalWrite(motorB2, LOW);
+Forward();
 }
 if(digitalRead(LS) && !digitalRead(RS)) //move right
 {
-digitalWrite(motorA1, LOW); 
-digitalWrite(motorA2, LOW); 
-digitalWrite(motorB1, HIGH); 
-digitalWrite(motorB2, LOW); 
+  Right();
 }
 if(!digitalRead(LS) && digitalRead(RS)) //move left
 {
-digitalWrite(motorA1, HIGH); 
-digitalWrite(motorA2, LOW);
-digitalWrite(motorB1, LOW);
-digitalWrite(motorB2, LOW); 
+  Left();
 }
 
 if(!digitalRead(LS) && !digitalRead(RS)) //Stop
