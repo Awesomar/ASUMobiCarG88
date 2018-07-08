@@ -124,3 +124,95 @@ void Phase1()
       }
   }
 }
+
+void Distance(int number)
+{
+  Serial.print("Distance = ");
+  Serial.println(number);
+  
+  counter = 0;
+  while (dist < number)
+  {
+    Forward();
+
+  }
+  Stop();
+  delay(1000);
+  counter = 0;
+}
+void Angle(int angle)
+{
+  Serial.print("Angle = ");
+  Serial.println(angle);
+
+  counter = 0;
+  
+  max_counts = angle * 28 * 2 / 360;
+  
+  Rotate(max_counts);
+  Stop();
+  delay(1000);
+  counter = 0;
+}
+
+void Square()
+{
+  Serial.println("Square");
+  
+  for (int i = 0; i < 8; i++)
+  {
+    Distance(200);
+    if (i < 4)
+      Rotate(10 + 2*i);
+    if (i >= 4)
+      Rotate(11);
+    Serial.print("i= ");
+    Serial.println(i);
+  }
+}
+
+void Circle(bool dir, int x, int y, int z)
+{
+  // Circumference = 6.28318530718
+  
+  Serial.println("Circle");
+  
+  while(counter < z)
+  //while(dist < 6.28318530718)
+  {
+    switch (dir)
+    {
+      case 0: //Right
+          analogWrite(enA, x);
+          analogWrite(enB, y);
+          
+          digitalWrite(motorA1, HIGH); 
+          digitalWrite(motorA2, LOW); 
+          digitalWrite(motorB1, HIGH); 
+          digitalWrite(motorB2, LOW); 
+      
+      case 1: //Left
+          analogWrite(enA, y);
+          analogWrite(enB, x);
+          
+          digitalWrite(motorA1, HIGH); 
+          digitalWrite(motorA2, LOW); 
+          digitalWrite(motorB1, HIGH); 
+          digitalWrite(motorB2, LOW); 
+      
+    }
+  }
+  Stop();
+  delay(500);
+  counter = 0;
+}
+
+void Infinity()
+{
+  Circle(true, 90, 170, 100);
+  Stop();
+  delay(1000);
+  Circle(false, 90, 170, 100);
+  Stop();
+}
+
