@@ -23,9 +23,7 @@ int MS,LS,RS,MSV,LSV,RSV;
 int distance;
 char s= 's';
 
-
 NewPing sonar(trig, echo, 250);
-void Phase1(), Phase2(), Phase3();
 
 
 void setup()
